@@ -11,9 +11,32 @@ spec:
   # from its pool if not specified. You can also specify one manually.
   # loadBalancerIP: x.y.z.a
   ports:
-  - name: unifi-web
-    port: 8443
+  - name: stun
+    port: 3478
+    protocol: UDP
+  - name: ap-discovery
+    port: 10001
+    protocol: UDP
   - name: device-comm
     port: 8080
+    protocol: TCP
+  - name: unifi-web
+    port: 8443
+    protocol: TCP
+  - name: controller-discovery
+    port: 1900
+    protocol: UDP
+  - name: guest-portal-https
+    port: 8843
+    protocol: TCP
+  - name: guest-portal-http
+    port: 8880
+    protocol: TCP
+  - name: mobile-througput-test
+    port: 6789
+    protocol: TCP
+  - name: remote-syslog
+    port: 5514
+    protocol: UDP
   selector:
     name: unifi-controller
