@@ -34,14 +34,17 @@ spec:
         ports:
         - name: stun
           containerPort: 3478
+          protocol: UDP
         - name: ap-discovery
           containerPort: 10001
+          protocol: UDP
         - name: device-comm
           containerPort: 8080
         - name: unifi-web
           containerPort: 8443
         - name: ctrl-discovery
           containerPort: 1900
+          protocol: UDP
         - name: guest-https
           containerPort: 8843
         - name: guest-http
@@ -50,6 +53,7 @@ spec:
           containerPort: 6789
         - name: remote-syslog
           containerPort: 5514
+          protocol: UDP
         volumeMounts:
         - name: unifi-data-volume
           mountPath: "/config"
