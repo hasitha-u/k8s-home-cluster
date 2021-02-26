@@ -40,13 +40,13 @@ spec:
           containerPort: 8080
         - name: unifi-web
           containerPort: 8443
-        - name: controller-discovery
+        - name: ctrl-discovery
           containerPort: 1900
-        - name: guest-portal-https
+        - name: guest-https
           containerPort: 8843
-        - name: guest-portal-https
+        - name: guest-https
           containerPort: 8880
-        - name: mobile-througput-test
+        - name: througput-test
           containerPort: 6789
         - name: remote-syslog
           containerPort: 5514

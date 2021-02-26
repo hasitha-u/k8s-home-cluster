@@ -23,16 +23,16 @@ spec:
   - name: unifi-web
     port: 8443
     protocol: TCP
-  - name: controller-discovery
+  - name: ctrl-discovery
     port: 1900
     protocol: UDP
-  - name: guest-portal-https
+  - name: guest-https
     port: 8843
     protocol: TCP
-  - name: guest-portal-http
+  - name: guest-http
     port: 8880
     protocol: TCP
-  - name: mobile-througput-test
+  - name: througput-test
     port: 6789
     protocol: TCP
   - name: remote-syslog
