@@ -30,4 +30,4 @@ jobs:
           helmv3: 3.0.0
           command: |
             echo "Running kubeval"
-            kubeval -d apps --strict
+            kubeval -d cluster --strict
