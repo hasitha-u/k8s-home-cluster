@@ -44,7 +44,7 @@ spec:
           containerPort: 1900
         - name: guest-https
           containerPort: 8843
-        - name: guest-https
+        - name: guest-http
           containerPort: 8880
         - name: througput-test
           containerPort: 6789
