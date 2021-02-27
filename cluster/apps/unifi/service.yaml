@@ -2,9 +2,46 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: unifi-controller
-  name: unifi-controller
+    name: unifi-controller-tcp-svc
+  name: unifi-controller-tcp-svc
   namespace: unifi
+  annotations:
+    metallb.universe.tf/allow-shared-ip: unifi
+spec:
+  type: LoadBalancer
+  # loadBalancerIP is optional. MetalLB will automatically allocate an IP 
+  # from its pool if not specified. You can also specify one manually.
+  # loadBalancerIP: x.y.z.a
+  ports:
+  - name: device-comm
+    port: 8080
+    protocol: TCP
+  - name: unifi-web
+    port: 8443
+    protocol: TCP
+  - name: guest-https
+    port: 8843
+    protocol: TCP
+  - name: guest-http
+    port: 8880
+    protocol: TCP
+  - name: througput-test
+    port: 6789
+    protocol: TCP
+  selector:
+    name: unifi-controller
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: unifi-controller-udp-svc
+  name: unifi-controller-udp-svc
+  namespace: unifi
+  annotations:
+    metallb.universe.tf/allow-shared-ip: unifi
 spec:
   type: LoadBalancer
   # loadBalancerIP is optional. MetalLB will automatically allocate an IP 
@@ -17,24 +54,9 @@ spec:
   - name: ap-discovery
     port: 10001
     protocol: UDP
-  - name: device-comm
-    port: 8080
-    protocol: TCP
-  - name: unifi-web
-    port: 8443
-    protocol: TCP
   - name: ctrl-discovery
     port: 1900
     protocol: UDP
-  - name: guest-https
-    port: 8843
-    protocol: TCP
-  - name: guest-http
-    port: 8880
-    protocol: TCP
-  - name: througput-test
-    port: 6789
-    protocol: TCP
   - name: remote-syslog
     port: 5514
     protocol: UDP
