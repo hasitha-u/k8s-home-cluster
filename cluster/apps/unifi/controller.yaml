@@ -19,11 +19,10 @@ spec:
       containers:
       - name: unifi-controller
         image: linuxserver/unifi-controller:version-6.0.45
-        # image: gcr.io/google-samples/gb-frontend:v4
         resources:
           requests:
-            cpu: 100m
-            memory: 100Mi
+            cpu: 500m
+            memory: 128Mi
         env:
         - name: PUID
           value: "1001"
