@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: homebridge-http
+  name: homebridge-http
+  namespace: unifi
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 8581
+  selector:
+    name: homebridge
