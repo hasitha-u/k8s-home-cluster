@@ -31,9 +31,9 @@ spec:
         - name: TZ
           value: "Europe/London"
         - name: HOMEBRIDGE_CONFIG_UI
-          value: 1
+          value: "1"
         - name: HOMEBRIDGE_CONFIG_UI_PORT
-          value: 8581
+          value: "8581"
         ports:
         - name: http
           containerPort: 8581
