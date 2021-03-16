@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homebridge
+  namespace: homebridge
+  labels:
+    name: homebridge
+spec:
+  selector:
+    matchLabels:
+      name: homebridge
+  replicas: 1
+  template:
+    metadata:
+      namespace: homebridge
+      labels:
+        name: homebridge
+    spec:
+      containers:
+      - name: homebridge
+        image: oznu/homebridge:ubuntu
+        resources:
+          requests:
+            cpu: 500m
+            memory: 128Mi
+        env:
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: TZ
+          value: "Europe/London"
+        - name: HOMEBRIDGE_CONFIG_UI
+          value: 1
+        - name: HOMEBRIDGE_CONFIG_UI_PORT
+          value: 8581
+        ports:
+        - name: http
+          containerPort: 8581
+        volumeMounts:
+        - name: homebridge-data-volume
+          mountPath: "/homebridge"
+      volumes:
+      - name: homebridge-data-volume
+        persistentVolumeClaim:
+          claimName: homebridge
