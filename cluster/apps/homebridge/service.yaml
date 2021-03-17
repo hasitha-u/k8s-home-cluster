@@ -9,6 +9,6 @@ spec:
   type: LoadBalancer
   ports:
   - name: http
-    port: 8581
+    port: 80
   selector:
     name: homebridge
