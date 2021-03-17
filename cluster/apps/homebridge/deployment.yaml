@@ -35,8 +35,10 @@ spec:
         - name: HOMEBRIDGE_CONFIG_UI_PORT
           value: "8581"
         ports:
-        - name: http
+        - name: ui
           containerPort: 8581
+        - name: bridge
+          containerPort: 52405
         volumeMounts:
         - name: homebridge-data-volume
           mountPath: "/homebridge"
