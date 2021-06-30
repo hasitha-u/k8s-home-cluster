@@ -19,8 +19,6 @@ spec:
       containers:
       - name: syslog-srv
         image: hasitha84/syslogsrv:latest
-        command: ["/usr/local/bin/raftman"]
-        args: ["-frontend syslog+udp://:4514?format=RFC5424&queueSize=512&timeout=0s"]
         resources:
           requests:
             cpu: 500m
