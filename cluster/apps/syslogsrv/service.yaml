@@ -27,7 +27,6 @@ spec:
     name: syslog-srv
 
 # ---
-
 # apiVersion: v1
 # kind: Service
 # metadata:
