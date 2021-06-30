@@ -19,16 +19,18 @@ spec:
       containers:
       - name: syslog-srv
         image: hasitha84/syslogsrv:latest
+        command: ["/usr/local/bin/raftman"]
+        args: ["-frontend syslog+udp://:4514?format=RFC5424&queueSize=512&timeout=0s"]
         resources:
           requests:
             cpu: 500m
             memory: 128Mi
         ports:
         - name: syslog-udp
-          containerPort: 1514
+          containerPort: 4514
           protocol: UDP
         - name: syslog-tcp
-          containerPort: 2514
+          containerPort: 5514
         - name: api
           containerPort: 8181
         - name: web
