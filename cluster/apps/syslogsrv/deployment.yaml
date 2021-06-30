@@ -25,11 +25,11 @@ spec:
             memory: 128Mi
         ports:
         - name: syslog-udp
-          containerPort: 5514
+          containerPort: 1514
           protocol: UDP
         - name: syslog-tcp
-          containerPort: 5514
-        - name: http
+          containerPort: 2514
+        - name: api
           containerPort: 8181
-        - name: https
+        - name: web
           containerPort: 8282
